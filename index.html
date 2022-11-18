@@ -8,29 +8,64 @@
     <style>
         *{
             padding: 0rem;
-            margin: 1rem;
+            margin: 0.5rem;
         }
         .mainDiv{
             border: 2px solid black;
             height: 80vh;
             width: 80vw;
             padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            background-color: antiquewhite;
+        }
+        #name{
+            padding: 0.5rem;
+            max-width: 15rem;
         }
         button{
            margin-left: 15rem;
            padding: 1rem;
            font-size: large;
+           max-width: 7rem;
         }
+        .gender_container{
+            display: flex;
+        }
+
         .gender{
             border:1px solid black;
-            width: 8rem;
-            height: 4rem;
+            width: 5rem;
+            height: 2rem;
+            text-align: center;
+            font-size: large;
+            background-color: white;
+        }
+
+        .age_container{
+            display: flex;
         }
 
         .age{
             border:1px solid black;
-            width: 8rem;
-            height: 4rem;
+            width: 5rem;
+            height: 2rem;
+            text-align: center;
+            font-size: large;
+            background-color: white;
+        }
+
+        .country_container{
+            display: flex;
+        }
+
+        .country{
+            border:1px solid black;
+            width: 5rem;
+            height: 2rem;
+            text-align: center;
+            font-size: large;
+            background-color: white;
         }
        
     </style>
@@ -40,18 +75,27 @@
       <div><h1>Name & Guess</h1></div><br>
       <label for="name">Input your name</label>
       <input type="text" name="name" id="name">
-      <br>
+
       <button>Guess</button>
 
-     
+     <div class="gender_container">
       <div><h4>Gender</h4></div>
         <div class="gender"></div><br>
+    </div>
 
+    <div class="age_container">
         <div><h4>Age</h4></div>
         <div class="age"></div><br>
+    </div>
 
+    <div class="country_container">
         <div><h4>Country</h4></div>
-        <div class="Country"></div>  
+        <div class="country"></div>
+        <div class="country"></div>
+        <div class="country"></div>
+        <div class="country"></div>
+        
+</div>
 
     </div>
 
