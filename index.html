@@ -26,6 +26,12 @@
             width: 8rem;
             height: 4rem;
         }
+
+        .age{
+            border:1px solid black;
+            width: 8rem;
+            height: 4rem;
+        }
        
     </style>
 </head>
@@ -41,28 +47,58 @@
       <div><h4>Gender</h4></div>
         <div class="gender"></div><br>
 
+        <div><h4>Age</h4></div>
+        <div class="age"></div><br>
+
         <div><h4>Country</h4></div>
         <div class="Country"></div>  
 
     </div>
 
     <script>
-        function Guess(){
-            let gender= new XMLHttpRequest();
-            gender.open("GET", 'https://api.genderize.io');
-            gender.onload = ()=> {
-              let userName = document.getElementsByTagName("input");
-              console.log(userName);
-              let inputedName = JSON.parse(gender.responseText);
-              
+
+let genderContainer = document.querySelector(".gender");    
+let ageContainer = document.querySelector(".age");
+            
+            
+
+            let guessButton = document.querySelector('button');
+            guessButton.addEventListener('click', (event)=>{
+                event.preventDefault();
+                clear();
+                
+                let getName = document.querySelector("#name").value;
+                //guess gender
+            let getGender= new XMLHttpRequest();
+            getGender.open("GET", 'https://api.genderize.io/?name='+getName);
+            
+            getGender.onload = ()=> {
+            // console.log(genderContainer);
+            let inputedName = JSON.parse(getGender.responseText);
+              genderContainer.append(inputedName.gender);
+            }
+            
+            getGender.send();
+
+            //guess age
+            let getAge = new XMLHttpRequest();
+            getAge.open("GET",'https://api.agify.io?name='+getName);
+
+            getAge.onload = ()=> {
+                let inputedName2 = JSON.parse(getAge.responseText);
+                ageContainer.append(inputedName2.age);
             }
 
-            gender.send();
-        }
-  
-    
-    
+            getAge.send();
+            
 
+        })
+    
+    
+        function clear(){
+            genderContainer.innerHTML=" ";
+            ageContainer.innerHTML=" ";
+        }
 
     </script>
 </body>
